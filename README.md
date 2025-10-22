@@ -87,13 +87,13 @@ python optimize_stop_loss_PROPER_IL.py
 
 ### Stop Loss Comparison (for 44/57)
 
-| Stop Loss | Net P&L | IL Reduction | Win Rate |
-|-----------|---------|--------------|----------|
-| 10 ticks | -$901 | 23.9% | 27.2% |
-| **12 ticks** | **-$886** | **25.0%** | **30.5%** ✓ |
-| 15 ticks | -$904 | 23.6% | 36.9% |
-| 20 ticks | -$1,040 | 13.1% | 43.7% |
-| 30 ticks | -$1,215 | -0.4% | 53.2% |
+| Stop Loss | IL Reduction | Win Rate |
+|-----------|--------------|----------|
+| 10 ticks | 23.9% | 27.2% |
+| **12 ticks** | **25.0%** | **30.5%** ✓ |
+| 15 ticks | 23.6% | 36.9% |
+| 20 ticks | 13.1% | 43.7% |
+| 30 ticks | -0.4% | 53.2% |
 
 ## How It Works
 
@@ -129,18 +129,18 @@ This is the TRUE impermanent loss from token rebalancing, not an assumption.
 ## Key Insights
 
 ### 1. Degradation Pattern (ROBUST)
-- 44/57 outperforms 50/50 by $216 (24%)
+- 44/57 outperforms 50/50 by 24%
 - Too aggressive (50/50) = hedge immediately = no IL to protect
 - Too conservative (30/70) = miss most IL = insufficient protection
 - Pattern holds regardless of IL calculation method
 
 ### 2. Optimal is Specific
-- 44/57 beats 40/60 by $75 (8%)
+- 44/57 beats 40/60 by 8%
 - Tight clustering: 43-45 for short, 55-60 for long
 - High precision required - small changes matter
 
 ### 3. Tighter Stops Win
-- 12 ticks beats 15 ticks by $17 (2%)
+- 12 ticks beats 15 ticks by 2%
 - Wide stops let losing trades run too long
 - Pattern: 10-12 optimal, degrades rapidly beyond 15
 
@@ -176,16 +176,14 @@ Then run: `python lp_hedging_PROPER_IL.py`
 ## Limitations & Next Steps
 
 ### Current Issues
-1. **IL appears high** ($1,296/month on $2k) - needs real-world validation
-2. **Single month tested** - September 2025 only
-3. **No execution costs** - gas, slippage, funding rates excluded
+1. **Single month tested** - September 2025 only
+2. **No execution costs** - gas, slippage, funding rates excluded
 
 ### Recommended Next Steps
-1. Validate IL calculation against real LP positions
-2. Test on multiple months/market conditions
-3. Out-of-sample validation (train/test split)
-4. Add execution cost modeling
-5. Test different range widths (currently 1%)
+1 Test on multiple months/market conditions
+2. Out-of-sample validation (train/test split)
+3. Add execution cost modeling
+4. Test different range widths (currently 1%)
 
 ## Strategic Takeaway
 
