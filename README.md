@@ -10,10 +10,6 @@ Analysis of concentrated liquidity provider (LP) positions with dynamic hedging 
 - Reduces IL by 25% compared to no hedging
 - Strategic pattern validated across full 192k price dataset
 
-## ⚠️ Important Caveat
-
-This analysis uses **proper concentrated liquidity IL calculation** (Uniswap v3 math). The absolute IL numbers ($1,296/month on $2k capital) appear high and need validation against real-world data. However, the **strategic patterns are robust**:
-
 ✓ Optimal threshold around 44/57  
 ✓ Degradation pattern (50/50 underperforms)  
 ✓ Stop loss optimization (12 ticks beats 15)  
